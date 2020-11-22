@@ -9,8 +9,8 @@ using SalesWebMvc.Data;
 namespace SalesWebMvc.Migrations
 {
     [DbContext(typeof(SalesWebMvcContext))]
-    [Migration("20201122134810_OtherEntities")]
-    partial class OtherEntities
+    [Migration("20201122141654_OtherEntitiess")]
+    partial class OtherEntitiess
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,7 +31,7 @@ namespace SalesWebMvc.Migrations
                     b.ToTable("Department");
                 });
 
-            modelBuilder.Entity("SalesWebMvc.Models.SalerRecord", b =>
+            modelBuilder.Entity("SalesWebMvc.Models.SalesRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -48,7 +48,7 @@ namespace SalesWebMvc.Migrations
 
                     b.HasIndex("SellerID");
 
-                    b.ToTable("SalerRecords");
+                    b.ToTable("SalesRecord");
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.Seller", b =>
@@ -62,16 +62,18 @@ namespace SalesWebMvc.Migrations
 
                     b.Property<int?>("DepartmentId");
 
+                    b.Property<string>("Email");
+
                     b.Property<string>("Name");
 
                     b.HasKey("ID");
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Sellers");
+                    b.ToTable("Seller");
                 });
 
-            modelBuilder.Entity("SalesWebMvc.Models.SalerRecord", b =>
+            modelBuilder.Entity("SalesWebMvc.Models.SalesRecord", b =>
                 {
                     b.HasOne("SalesWebMvc.Models.Seller", "Seller")
                         .WithMany("Sales")
