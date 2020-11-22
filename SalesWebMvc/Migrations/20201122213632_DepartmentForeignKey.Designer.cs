@@ -9,7 +9,7 @@ using SalesWebMvc.Data;
 namespace SalesWebMvc.Migrations
 {
     [DbContext(typeof(SalesWebMvcContext))]
-    [Migration("20201122193058_DepartmentForeignKey")]
+    [Migration("20201122213632_DepartmentForeignKey")]
     partial class DepartmentForeignKey
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,25 +40,25 @@ namespace SalesWebMvc.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("SellerID");
+                    b.Property<int?>("SellerId");
 
                     b.Property<int>("Status");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SellerID");
+                    b.HasIndex("SellerId");
 
                     b.ToTable("SalesRecord");
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.Seller", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("BirthDate");
+                    b.Property<double>("BaseSalary");
 
-                    b.Property<double>("Dalary");
+                    b.Property<DateTime>("BirthDate");
 
                     b.Property<int>("DepartmentId");
 
@@ -66,7 +66,7 @@ namespace SalesWebMvc.Migrations
 
                     b.Property<string>("Name");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
 
@@ -77,7 +77,7 @@ namespace SalesWebMvc.Migrations
                 {
                     b.HasOne("SalesWebMvc.Models.Seller", "Seller")
                         .WithMany("Sales")
-                        .HasForeignKey("SellerID");
+                        .HasForeignKey("SellerId");
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.Seller", b =>

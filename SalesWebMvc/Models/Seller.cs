@@ -6,11 +6,11 @@ namespace SalesWebMvc.Models
 {
     public class Seller
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public String Name { get; set; }
         public String Email { get; set; }
         public DateTime BirthDate { get; set; }
-        public double Dalary { get; set; }
+        public double BaseSalary { get; set; }
         public Department Department { get; set; }
         public int DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
@@ -19,13 +19,13 @@ namespace SalesWebMvc.Models
         {
         }
 
-        public Seller(int iD, string name, string email, DateTime birthDate, double dalary, Department department)
+        public Seller(int id, string name, string email, DateTime birthDate, double dalary, Department department)
         {
-            ID = iD;
+            Id = id;
             Name = name;
             Email = email;
             BirthDate = birthDate;
-            Dalary = dalary;
+            BaseSalary = dalary;
             Department = department;
         }
 

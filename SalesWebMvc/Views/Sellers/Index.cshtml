@@ -20,7 +20,10 @@
                 @Html.DisplayNameFor(seller => seller.BirthDate)
             </th>
             <th>
-                @Html.DisplayNameFor(seller => seller.Dalary)
+                @Html.DisplayNameFor(seller => seller.BaseSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(seller => seller.Department)
             </th>
             <th></th>
         </tr>
@@ -39,12 +42,15 @@
                 @Html.DisplayFor(modelSeller => seller.BirthDate)
             </td>
             <td>
-                @Html.DisplayFor(modelSeller => seller.Dalary)
+                @Html.DisplayFor(modelSeller => seller.BaseSalary)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@seller.ID">Edit</a>
-                <a asp-action="Details" asp-route-id="@seller.ID">Details</a>
-                <a asp-action="Delete" asp-route-id="@seller.ID">Delete</a>
+                @Html.DisplayFor(modelSeller => seller.Department)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@seller.Id">Edit</a>
+                <a asp-action="Details" asp-route-id="@seller.Id">Details</a>
+                <a asp-action="Delete" asp-route-id="@seller.Id">Delete</a>
             </td>
         </tr>
         }
