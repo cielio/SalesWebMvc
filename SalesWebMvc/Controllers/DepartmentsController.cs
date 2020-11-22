@@ -46,7 +46,7 @@ namespace SalesWebMvc.Controllers
         //GET: Departments/Create
         public IActionResult Create()
         {
-            //Tem q passar o Model
+            //Tem que passar o Model
             return View(new Department());
         }
 
